@@ -1,19 +1,18 @@
 import * as express from 'express';
-import { DemoController } from '../controllers/demo.controller';
+import { ArticleController } from '../controllers/article.controller';
 import * as asyncHandler from 'express-async-handler'
-export class DemoRoutes {
+export class ArticleRoutes {
     router: express.Router;
-    controller: DemoController;
+    controller: ArticleController;
     constructor() {
         this.router = express.Router();
-        this.controller = new DemoController();
+        this.controller = new ArticleController();
     }
     get routes() {
-        this.router.get('/error', asyncHandler(this.controller.getError));
         this.router.get('/', asyncHandler(this.controller.getRecord));
         this.router.post('/', asyncHandler(this.controller.createRecord));
         this.router.put('/', asyncHandler(this.controller.updateRecord));
-        this.router.delete('/:id', asyncHandler(this.controller.deleteRecord));
+        this.router.delete('/', asyncHandler(this.controller.deleteRecord));
         return this.router;
     }
 }

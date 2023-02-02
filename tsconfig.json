@@ -3,7 +3,9 @@
       "target": "es5",
       "module": "commonjs",
       "outDir": "build",
-      "sourceMap": true
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true
     },
     "include": [
       "app/**/*.ts"

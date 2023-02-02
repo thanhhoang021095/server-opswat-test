@@ -1,5 +1,9 @@
 export const SUCCESS = {
-    '200': '200'
+    '200': 200
+}
+
+export const UNAUTH_ERROR = {
+    '401': 401
 }
 
 export const CLIENT_ERROR = {
@@ -18,6 +22,13 @@ export class CumtomResponse {
         };
     }
 
+    static unAuthorized = (message: string = '') => {
+        return {
+            code: UNAUTH_ERROR[401],
+            message: message,
+        };
+    }
+    
     static badRequest = (data: any, message: string = '') => {
         return {
             code: CLIENT_ERROR[400],
